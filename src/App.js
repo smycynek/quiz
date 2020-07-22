@@ -4,8 +4,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { IconButton } from '@material-ui/core';
-import RadioButtonCheckedSharpIcon from '@material-ui/icons/RadioButtonCheckedSharp';
 import { questions, personas } from './questions';
 
 import copper from './copper.jpg';
@@ -39,13 +37,14 @@ const App = () => {
   };
   const onItemClickHandler = (e) => {
     let choice = e.target.textContent;
-    if (!choice) {
+    if (!choice) { // if user clicks radio button rather than text
       choice = e.currentTarget.textContent;
     }
-
-    const value = Number(getValueFromString(choice));
-    setTotal((prevTotal) => prevTotal + value);
-    setQindex((prevIndex) => prevIndex + 1);
+    setTimeout(() => {
+      const value = Number(getValueFromString(choice));
+      setTotal((prevTotal) => prevTotal + value);
+      setQindex((prevIndex) => prevIndex + 1);
+    }, 240);
   };
 
   const handleReset = () => {
@@ -56,9 +55,7 @@ const App = () => {
   const listChoices = (question) => ((question === null) ? <li>None</li>
     : question.Choices.map((choice) => (
       <li style={{ fontSize: 'larger' }} key={choice.Choice} onClick={onItemClickHandler}>
-        <IconButton className="slim" aria-label="delete" value={choice.Choice}>
-          <RadioButtonCheckedSharpIcon className="slim" />
-        </IconButton>
+        <input className="slim" type="radio" value={choice.Choice} />
         {choice.Choice}
       </li>
     )));
@@ -115,8 +112,12 @@ const App = () => {
       </>
       )
       )}
-      <hr />
-      <small><a href="https://github.com/smycynek/quiz">https://github.com/smycynek/quiz</a></small>
+      { qindex > questions.length - 1 && (
+      <>
+        <hr />
+        <small><a href="https://github.com/smycynek/quiz">https://github.com/smycynek/quiz</a></small>
+      </>
+      )}
     </div>
 
   );

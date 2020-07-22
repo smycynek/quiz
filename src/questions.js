@@ -120,7 +120,7 @@ export const questions = [
   },
   {
     id: 6,
-    Question: "The most worst thing I've ordered on Amazon this year is:",
+    Question: "The worst thing I've ordered on Amazon this year is:",
     Choices: [
       {
         Choice: '1/8 scale flat mop for sterilizing mini-blinds',
