@@ -98,7 +98,7 @@ export const questions = [
   },
   {
     id: 5,
-    Question: "If someone incorrectly refers to a TV series as a \"reboot\" when it is actually a 'continuation within canon' or 'reimagination', I:",
+    Question: 'If someone incorrectly refers to a TV series as a "reboot" when it is actually a "continuation within canon" or "reimagination", I:',
     Choices: [
       {
         Choice: 'Rage tweet them',
@@ -142,7 +142,7 @@ export const questions = [
   },
   {
     id: 7,
-    Question: 'Why do you ride the MBTA?',
+    Question: 'I ride the MBTA:',
     Choices: [
       {
         Choice: 'To see the Charles',
