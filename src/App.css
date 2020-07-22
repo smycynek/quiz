@@ -1,13 +1,8 @@
 
-h1 {
+h1,h2,h3,h4,p,span,button,body {
   font-family: 'Roboto', sans-serif;
 }
-h2 {
-  font-family: 'Roboto', sans-serif;
-}
-h4 {
-  font-family: 'Roboto', sans-serif;
-}
+
 li{
   padding-left: 0px !important;
   padding-top: 10px !important;
@@ -20,19 +15,12 @@ li{
   padding-top: 0px !important;
   padding-bottom: 0px !important;
   margin: 0px !important;
-
 }
+
 ol{
   padding-left: 0px !important;
 }
 
-button {
-  font-family: 'Roboto', sans-serif;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
 @media(hover: hover) and (pointer: fine) {
   li:hover {
       font-weight: bold;
@@ -44,9 +32,3 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
-}
-span {
-  font-family: 'Roboto', sans-serif;
-}

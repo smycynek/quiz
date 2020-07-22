@@ -67,7 +67,7 @@ const App = () => {
 
     <div className="App">
 
-      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
 
       <h1 className="text-primary">What kind of metal rod are you?</h1>
       { qindex < questions.length && (
