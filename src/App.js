@@ -115,7 +115,8 @@ const App = () => {
       </>
       )
       )}
-
+      <hr />
+      <small><a href="https://github.com/smycynek/quiz">https://github.com/smycynek/quiz</a></small>
     </div>
 
   );
