@@ -186,7 +186,7 @@ export const questions = [
   },
   {
     id: 9,
-    Question: "I have opened Steve's liquor locker with",
+    Question: "I have opened Steve's liquor locker with:",
     Choices: [
       {
         Choice: 'A small crowbar I keep with me at all times',
