@@ -1,10 +1,17 @@
+import copper from './copper.jpg';
+import steel from './steel.jpg';
+import aluminum from './aluminum.jpg';
+import zinc from './zinc.jpg';
+import brass from './brass.jpg';
+import nickel from './nickel.jpg';
+
 export const personas = [
-  ['steel', 'You are tough and possibly corrosion resistant.'],
-  ['copper', 'You like to be ripped from walls.'],
-  ['aluminum', 'You are light and bendable when thin.'],
-  ['nickel', 'You have a nice shine, but some people are allergic to you.'],
-  ['brass', "Your mirror-finish is attractive, and COVID-19 can't live on you."],
-  ['zinc', 'You have a bright future as an element in a bottle of Centrum.'],
+  ['steel', 'You are tough and possibly corrosion resistant.', steel],
+  ['copper', 'You like to be ripped from walls.', copper],
+  ['aluminum', 'You are light and bendable when thin.', aluminum],
+  ['nickel', 'You have a nice shine, but some people are allergic to you.', nickel],
+  ['brass', "Your mirror-finish is attractive, and COVID-19 can't live on you.", brass],
+  ['zinc', 'You have a bright future as an element in a bottle of Centrum.', zinc],
 ];
 
 export const questions = [

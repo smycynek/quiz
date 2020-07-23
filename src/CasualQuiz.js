@@ -4,24 +4,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { questions, personas } from './questions';
 
-import copper from './copper.jpg';
-import steel from './steel.jpg';
-import aluminum from './aluminum.jpg';
-import zinc from './zinc.jpg';
-import brass from './brass.jpg';
-import nickel from './nickel.jpg';
-
-const lookup = {
-  copper,
-  steel,
-  aluminum,
-  zinc,
-  brass,
-  nickel,
-};
-const App = () => {
+const CasualQuiz = ({title, questions, personas}) => {
   const [qindex, setQindex] = useState(0);
   const [total, setTotal] = useState(0);
   const getValueFromString = (str) => {
@@ -66,7 +50,7 @@ const App = () => {
 
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
 
-      <h1 className="text-primary">What kind of metal rod are you?</h1>
+      <h1 className="text-primary">{title}</h1>
       { qindex < questions.length && (
       <h4 className="text-secondary">Take this quiz to find out!</h4>)}
       { qindex < questions.length && (
@@ -104,7 +88,7 @@ const App = () => {
           {personas[total % personas.length][0]}
           .
           <div>
-            <img width="200px" src={lookup[personas[total % personas.length][0]]} alt={personas[total % personas.length][0]} />
+            <img width="200px" src={[personas[total % personas.length][2]]} alt={personas[total % personas.length][0]} />
 
           </div>
         </h3>
@@ -123,4 +107,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default CasualQuiz;
