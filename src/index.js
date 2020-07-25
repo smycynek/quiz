@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <CasualQuiz
       class="App"
-      title="What kind of metal rod are you??"
+      title="What kind of metal rod are you?"
       personas={personas}
       questions={questions}
     />

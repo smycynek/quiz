@@ -5,13 +5,21 @@ import React, { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const CasualQuiz = ({title, questions, personas}) => {
+const CasualQuiz = ({ title, questions, personas }) => {
   const [qindex, setQindex] = useState(0);
-  const [total, setTotal] = useState(0);
-  const getValueFromString = (str) => {
+  const [answers, setAnswers] = useState({});
+
+  const getWinnerIndex = () => {
+    const keys = Object.keys(answers);
+    const max = Math.max(...Object.values(answers));
+    const index = keys.findIndex((key) => answers[key] === max);
+    return keys[index];
+  };
+
+  const getIndexValueFromChoice = (str) => {
     const choices = questions[qindex].Choices;
-    const choice = choices.find((c) => c.Choice === str);
-    return choice.Value;
+    const choiceIndex = choices.findIndex((c) => c === str);
+    return choiceIndex.toString();
   };
   const getQuestion = () => {
     if (qindex >= questions.length) {
@@ -25,22 +33,31 @@ const CasualQuiz = ({title, questions, personas}) => {
       choice = e.currentTarget.textContent;
     }
     setTimeout(() => {
-      const value = Number(getValueFromString(choice));
-      setTotal((prevTotal) => prevTotal + value);
+      const indexValue = getIndexValueFromChoice(choice);
+      setAnswers((prevAnswers) => {
+        const prevAnswersCopy = {};
+        Object.assign(prevAnswersCopy, prevAnswers);
+        if (prevAnswersCopy[indexValue] === undefined) {
+          prevAnswersCopy[indexValue] = 1;
+        } else {
+          prevAnswersCopy[indexValue] = Number(prevAnswersCopy[indexValue]) + 1;
+        }
+        return prevAnswersCopy;
+      });
       setQindex((prevIndex) => prevIndex + 1);
-    }, 240);
+    }, 300);
   };
 
   const handleReset = () => {
     setQindex(0);
-    setTotal(0);
+    setAnswers({});
   };
 
   const listChoices = (question) => ((question === null) ? <li>None</li>
     : question.Choices.map((choice) => (
-      <li style={{ fontSize: 'larger' }} key={choice.Choice} onClick={onItemClickHandler}>
-        <input className="slim" type="radio" value={choice.Choice} />
-        {choice.Choice}
+      <li style={{ fontSize: 'larger' }} key={`choice${Math.random().toString().substring(2)}`} onClick={onItemClickHandler}>
+        <input className="slim" type="radio" value={choice} />
+        {choice}
       </li>
     )));
 
@@ -80,15 +97,15 @@ const CasualQuiz = ({title, questions, personas}) => {
       && (
       <>
         <h3 className="text-info">
-          {personas[total % personas.length][1]}
+          {personas[getWinnerIndex()][1]}
         </h3>
         <h3 className="text-secondary">
           You are definitely
           {' '}
-          {personas[total % personas.length][0]}
+          {personas[getWinnerIndex()][0]}
           .
           <div>
-            <img width="200px" src={[personas[total % personas.length][2]]} alt={personas[total % personas.length][0]} />
+            <img width="200px" src={personas[getWinnerIndex()][2]} alt={getWinnerIndex()[0]} />
 
           </div>
         </h3>
