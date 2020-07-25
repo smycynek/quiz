@@ -4,21 +4,21 @@ h1,h2,h3,h4,p,span,button,body {
 }
 
 li{
-  padding-left: 0px !important;
-  padding-top: 10px !important;
-  padding-bottom: 0px !important;
-  margin: 0px !important;
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin: 0px;
   font-family: 'Roboto', sans-serif;
 }
 
 .slim {
-  padding-top: 2px !important;
-  padding-bottom: 2px !important;
-  margin: 5px !important;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin: 5px;
 }
 
 ol{
-  padding-left: 0px !important;
+  padding-left: 0px;
 }
 
 @media(hover: hover) and (pointer: fine) {
