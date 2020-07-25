@@ -4,15 +4,16 @@ import ReactDOM from 'react-dom';
 
 import CasualQuiz from './CasualQuiz';
 import * as serviceWorker from './serviceWorker';
-import { questions, personas } from './questions';
+import { title, questions, results } from './quizData';
 
 ReactDOM.render(
   <React.StrictMode>
     <CasualQuiz
       class="App"
-      title="What kind of metal rod are you?"
-      personas={personas}
+      title={title}
+      results={results}
       questions={questions}
+      showSource
     />
   </React.StrictMode>,
   document.getElementById('root'),

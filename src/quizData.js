@@ -3,11 +3,29 @@ import zinc from './zinc.jpg';
 import brass from './brass.jpg';
 import nickel from './nickel.jpg';
 
-export const personas = [
-  ['copper', 'You like to be ripped from walls.', copper],
-  ['nickel', 'You have a nice shine, but some people are allergic to you.', nickel],
-  ['brass', 'Your mirror-finish is attractive, and COVID-19 can\'t live on you.', brass],
-  ['zinc', 'You have a bright future as an element in a bottle of Centrum.', zinc],
+export const title = 'What kind of metal rod are you?';
+
+export const results = [
+  {
+    name: 'copper',
+    description: 'You like to be ripped from walls.',
+    image: copper,
+  },
+  {
+    name: 'nickel',
+    description: 'You have a nice shine, but some people are allergic to you.',
+    image: nickel,
+  },
+  {
+    name: 'brass',
+    description: 'Your mirror-finish is attractive, and COVID-19 can\'t live on you.',
+    image: brass,
+  },
+  {
+    name: 'zinc',
+    description: 'You have a bright future as an element in a bottle of Centrum.',
+    image: zinc,
+  },
 ];
 
 export const questions = [

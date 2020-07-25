@@ -1,13 +1,28 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-const CasualQuiz = ({ title, questions, personas }) => {
-  const [qindex, setQindex] = useState(0);
+const CasualQuiz = ({
+  title, questions, results, showSource,
+}) => {
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+
+  const validateInput = () => {
+    const firstChoiceLength = questions[0].Choices.length;
+    const allEqual = questions.every((q) => q.Choices.length === firstChoiceLength);
+    if (!allEqual) {
+      throw new Error('All questions must have the same number of choices.');
+    }
+    if (firstChoiceLength !== results.length) {
+      throw new Error('The number of choices per question must equal the number of result objects.');
+    }
+  };
 
   const getWinnerIndex = () => {
     const keys = Object.keys(answers);
@@ -17,15 +32,15 @@ const CasualQuiz = ({ title, questions, personas }) => {
   };
 
   const getIndexValueFromChoice = (str) => {
-    const choices = questions[qindex].Choices;
+    const choices = questions[questionIndex].Choices;
     const choiceIndex = choices.findIndex((c) => c === str);
     return choiceIndex.toString();
   };
   const getQuestion = () => {
-    if (qindex >= questions.length) {
+    if (questionIndex >= questions.length) {
       return null;
     }
-    return questions[qindex];
+    return questions[questionIndex];
   };
   const onItemClickHandler = (e) => {
     let choice = e.target.textContent;
@@ -44,12 +59,12 @@ const CasualQuiz = ({ title, questions, personas }) => {
         }
         return prevAnswersCopy;
       });
-      setQindex((prevIndex) => prevIndex + 1);
+      setQuestionIndex((prevIndex) => prevIndex + 1);
     }, 300);
   };
 
   const handleReset = () => {
-    setQindex(0);
+    setQuestionIndex(0);
     setAnswers({});
   };
 
@@ -61,6 +76,9 @@ const CasualQuiz = ({ title, questions, personas }) => {
       </li>
     )));
 
+  validateInput();
+  const result = results[getWinnerIndex()];
+
   return (
 
     <div className="App">
@@ -68,11 +86,11 @@ const CasualQuiz = ({ title, questions, personas }) => {
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
 
       <h1 className="text-primary">{title}</h1>
-      { qindex < questions.length && (
+      { questionIndex < questions.length && (
       <h4 className="text-secondary">Take this quiz to find out!</h4>)}
-      { qindex < questions.length && (
+      { questionIndex < questions.length && (
       <p>
-        {qindex + 1}
+        {questionIndex + 1}
         {' '}
         of
         {' '}
@@ -93,19 +111,19 @@ const CasualQuiz = ({ title, questions, personas }) => {
    </>
    )}
 
-      {(qindex > questions.length - 1
+      {(questionIndex > questions.length - 1
       && (
       <>
         <h3 className="text-info">
-          {personas[getWinnerIndex()][1]}
+          {result.description}
         </h3>
         <h3 className="text-secondary">
           You are definitely
           {' '}
-          {personas[getWinnerIndex()][0]}
+          {result.name}
           .
           <div>
-            <img width="200px" src={personas[getWinnerIndex()][2]} alt={getWinnerIndex()[0]} />
+            <img width="200px" src={result.image} alt={result.name} />
 
           </div>
         </h3>
@@ -113,7 +131,7 @@ const CasualQuiz = ({ title, questions, personas }) => {
       </>
       )
       )}
-      { qindex > questions.length - 1 && (
+      { questionIndex > questions.length - 1 && showSource && (
       <>
         <hr />
         <small><a href="https://github.com/smycynek/quiz">https://github.com/smycynek/quiz</a></small>
@@ -122,6 +140,17 @@ const CasualQuiz = ({ title, questions, personas }) => {
     </div>
 
   );
+};
+
+CasualQuiz.propTypes = {
+  title: PropTypes.string.isRequired,
+  questions: PropTypes.array.isRequired,
+  results: PropTypes.array.isRequired,
+  showSource: PropTypes.bool,
+};
+
+CasualQuiz.defaultProps = {
+  showSource: false,
 };
 
 export default CasualQuiz;
