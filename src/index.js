@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import CasualQuiz from './CasualQuiz';
+import CasualQuiz from 'react-casual-quiz/lib';
 import * as serviceWorker from './serviceWorker';
 import { title, questions, results } from './quizData';
 
