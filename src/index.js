@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CasualQuiz from 'react-casual-quiz/lib';
+// import CasualQuiz from './cq';
 import * as serviceWorker from './serviceWorker';
 import { title, questions, results } from './quizData';
 
