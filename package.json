@@ -12,7 +12,7 @@
     "bootstrap": "^4.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-casual-quiz": "^1.0.7",
+    "react-casual-quiz": "^1.0.18",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },

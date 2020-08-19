@@ -9042,10 +9042,10 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-casual-quiz@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/react-casual-quiz/-/react-casual-quiz-1.0.7.tgz#9722d208ba6dd88aee32c59d6a00e055731de3b6"
-  integrity sha512-UPPFq92mAz5G5PEbhFlilSfl4mSy7W4LbBGaRz82Kd92eghXxuhj2OHVdDshG7q7lABOjamRlL9ePU656Uc7cg==
+react-casual-quiz@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/react-casual-quiz/-/react-casual-quiz-1.0.18.tgz#b408c343b9f07d468775c719311982a27b1d3a3d"
+  integrity sha512-ebkb+dhL2LaIzPauGei04ZU99yk2zu1VJ4njRYT4Pma1titOUKlzIMMx8znhaCNQ6ofg28tS9TQ15U4Z0YFfEw==
   dependencies:
     bootstrap "^4.5.0"
     prop-types "^15.6.0"
